@@ -21,6 +21,14 @@ Those are the projects that need to be imported to make the software run correct
 * [city-connections-service](https://github.com/jribesbonet/city-connections-service)
 * [itinerary-service](https://github.com/jribesbonet/itinerary-service)
 
+## Docker images
+if you don't want to build the images yourself, are available on docker hub
+* [itinerary-config-server image](https://hub.docker.com/r/jribes/itinerary-config-server/)
+* [itinerary-eureka-server image](https://hub.docker.com/r/jribes/itinerary-eureka-server/)
+* [city-connections-service image](https://hub.docker.com/r/jribes/city-connections-service/)
+* [itinerary-service image](https://hub.docker.com/r/jribes/itinerary-service/)
+
+## Execution order
 The order in which the services must be executed is the following:
 * run itinerary-config-server
 * run itinerary-eureka-server
@@ -100,6 +108,9 @@ To run the application inside **docker container** execute:
 docker container run -p 8082:8082 --name city-connections-service --link itinerary-config-server:itinerary-config-server --link itinerary-eureka-server:itinerary-eureka-server city-connections-service:1.0
 ```
 
+##### Documentation
+This service is documented with Swagger, this can be checked on [http://localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html) once the process is up and running.
+
 #### 5. itinerary-service
 This project runs the City Connections Service. This microservice exposes the mehtod to obtain the path with less connections and the path with less time.
 Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-service)
@@ -119,3 +130,7 @@ To run the application inside **docker container** execute:
 ```
 docker container run -p 8081:8081 --name itinerary-service --link itinerary-config-server:itinerary-config-server --link itinerary-eureka-server:itinerary-eureka-server --link city-connections-service:city-connections-service itinerary-service:1.0
 ```
+
+##### Documentation
+This service is documented with Swagger, this can be checked on [http://localhost:8082/swagger-ui.html](http://localhost:8082/swagger-ui.html) once the process is up and running.
+
