@@ -6,11 +6,11 @@ Step to step instructions to make itinerary service run on docker containers or 
 Those are the projects that need to be imported to make the software run correctly
 
 The order in which the services must be executed is the following:
-*1. run itinerary-config-server
-*2. run itinerary-eureka-server
-*3. install dependency itinerary-lib
-*4. run city-connections-service
-*5. run itinerary-service
+* 1. run itinerary-config-server
+* 2. run itinerary-eureka-server
+* 3. install dependency itinerary-lib
+* 4. run city-connections-service
+* 5. run itinerary-service
 
 ### 1. itinerary-config-server
 This project runs the config server. All the properties from each service will be stored and served from this service.
