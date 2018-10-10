@@ -150,6 +150,7 @@ This service is documented with Swagger, this can be checked on [http://localhos
 
 ### Change city connections information on H2 DB
 Before starting **city-connections-service**, you can edit **data.sql** file inside src/main/resources. Once the process is up and running the rows in data.sql will be inserted on H2 DB and used in itinerary platform.
+To make the changes take effect, project need to be recompiled and executed.
 The file stored right now, contains the following cities:
 * Possible origin cities: BCN, MAD, VAL, BIL, MAD, VAL, ZAZ, HSK
 * Possible destination cities: MAD, VAL, BIL, ZAZ, IBZ, HSK
