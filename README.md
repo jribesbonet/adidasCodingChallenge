@@ -39,8 +39,8 @@ The order in which the services must be executed is the following:
 ## How to build/run the itinerary platform.
 ### 1. itinerary-config-server
 This project runs the config server. All the properties from each service will be stored and served from this service.
-All properties this config server loads are stored in [this repository](https://github.com/jribesbonet/configserver-properties).
-Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-config-server)
+All properties that config server loads are stored in [this repository](https://github.com/jribesbonet/configserver-properties).
+Project repository can be find in [here](https://github.com/jribesbonet/itinerary-config-server)
 
 ##### Build / Run instructions
 To build the binary file and create the docker image, on the path where the project is downloaded execute:
@@ -60,7 +60,7 @@ docker container run -p 8888:8888 --name itinerary-config-server jribes/itinerar
 
 ### 2. itinerary-eureka-server
 This project runs the eureka naming server. All microservices will be registered in the server.
-Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-eureka-server)
+Project repository can be find in [here](https://github.com/jribesbonet/itinerary-eureka-server)
 
 #### Build / Run instructions
 To build the binary file and create the docker image, on the path where the project is downloaded execute:
@@ -80,7 +80,7 @@ docker container run -p 8761:8761 --name itinerary-eureka-server --link itinerar
 
 ### 3. itinerary-lib
 Library with common functionalities that will be used in the itinerary service.
-Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-lib)
+Project repository can be find in [here](https://github.com/jribesbonet/itinerary-lib)
 
 #### Build / Run instructions
 On the path where the project is downloaded execute:
@@ -114,7 +114,7 @@ This service is documented with Swagger, this can be checked on [http://localhos
 
 #### 5. itinerary-service
 This project runs the City Connections Service. This microservice exposes the mehtod to obtain the path with less connections and the path with less time.
-Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-service)
+Project repository can be find in [here](https://github.com/jribesbonet/itinerary-service)
 
 ##### Build / Run instructions
 To build the binary file and create the docker image, on the path where the project is downloaded execute:
