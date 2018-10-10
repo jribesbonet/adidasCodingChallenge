@@ -12,6 +12,7 @@ Step by step instructions to make itinerary platform run on docker containers an
 * **Swagger 2** - Documentation of the REST API's with annotations. Very usefull and easy to integrate with SpringBoot.
 * **Docker** - Give the capability of generating containers.
 * **Docker Spotify Maven Plungin** - Gives the capability to generate docker images files with Maven. With this approach there is no need to be changing the Dockerfile every time that the projet version changes.
+* **Dijkstra algorith** - Downloaded classes to use Dijkstra algorith in order to get the shortest path between nodes.
 
 ## Related projects
 Those are the projects that need to be imported to make the software run correctly:
@@ -22,7 +23,7 @@ Those are the projects that need to be imported to make the software run correct
 * [itinerary-service](https://github.com/jribesbonet/itinerary-service)
 
 ## Docker images
-if you don't want to build the images yourself, are available on docker hub
+if you don't want to build the images yourself they are available on docker hub. Just run the docker run commands on each service and the images will be downloaded from docker hub automatically.
 * [itinerary-config-server image](https://hub.docker.com/r/jribes/itinerary-config-server/)
 * [itinerary-eureka-server image](https://hub.docker.com/r/jribes/itinerary-eureka-server/)
 * [city-connections-service image](https://hub.docker.com/r/jribes/city-connections-service/)
@@ -48,13 +49,13 @@ mvn clean package docker:build
 ```
 This will generate the binary file **itinerary-config-server-1.0.jar** and the docker image **jribes/itinerary-config-server**
 
-To run the service locally **without** the docker container execute:
+To run the service locally with the **binary jar file** execute:
 ```
 java -jar target/itinerary-config-server-1.0.jar
 ```
 To run the application inside **docker container** execute:
 ```
-docker container run -p 8888:8888 --name itinerary-config-server itinerary-config-server:1.0
+docker container run -p 8888:8888 --name itinerary-config-server jribes/itinerary-config-server
 ```
 
 ### 2. itinerary-eureka-server
@@ -68,13 +69,13 @@ mvn clean package docker:build
 ```
 This will generate the binary file **itinerary-eureka-server-1.0.jar** and the docker image **jribes/itinerary-eureka-server**
 
-To run the service locally **without** the docker container execute:
+To run the service locally with the **binary jar file** execute:
 ```
 java -jar -Dspring.profiles.active=local target/itinerary-eureka-server-1.0.jar
 ```
 To run the application inside **docker container** execute:
 ```
-docker container run -p 8761:8761 --name itinerary-eureka-server --link itinerary-config-server:itinerary-config-server itinerary-eureka-server:1.0
+docker container run -p 8761:8761 --name itinerary-eureka-server --link itinerary-config-server:itinerary-config-server jribes/itinerary-eureka-server
 ```
 
 ### 3. itinerary-lib
@@ -99,13 +100,13 @@ mvn clean package docker:build
 ```
 This will generate the binary file **city-connections-service-1.0.jar** and the docker image **jribes/city-connections-service**
 
-To run the service locally **without** the docker container execute:
+To run the service locally with the **binary jar file** execute:
 ```
 java -jar -Dspring.profiles.active=local target/city-connections-service-1.0.jar
 ```
 To run the application inside **docker container** execute:
 ```
-docker container run -p 8082:8082 --name city-connections-service --link itinerary-config-server:itinerary-config-server --link itinerary-eureka-server:itinerary-eureka-server city-connections-service:1.0
+docker container run -p 8082:8082 --name city-connections-service --link itinerary-config-server:itinerary-config-server --link itinerary-eureka-server:itinerary-eureka-server jribes/city-connections-service
 ```
 
 ##### Documentation
@@ -122,15 +123,30 @@ mvn clean package docker:build
 ```
 This will generate the binary file **itinerary-service-1.0.jar** and the docker image **jribes/itinerary-service**
 
-To run the service locally **without** the docker container execute:
+To run the service locally with the **binary jar file** execute:
 ```
 java -jar -Dspring.profiles.active=local target/itinerary-service-1.0.jar
 ```
 To run the application inside **docker container** execute:
 ```
-docker container run -p 8081:8081 --name itinerary-service --link itinerary-config-server:itinerary-config-server --link itinerary-eureka-server:itinerary-eureka-server --link city-connections-service:city-connections-service itinerary-service:1.0
+docker container run -p 8081:8081 --name itinerary-service --link itinerary-config-server:itinerary-config-server --link itinerary-eureka-server:itinerary-eureka-server --link city-connections-service:city-connections-service jribes/itinerary-service
 ```
 
 ##### Documentation
 This service is documented with Swagger, this can be checked on [http://localhost:8082/swagger-ui.html](http://localhost:8082/swagger-ui.html) once the process is up and running.
 
+## Itinerary calculation
+
+* To check that the platform is calculating both itineraries correctly, we will use the swagger interface to check it.
+* Once the whole platform is up and running, enter to the following link [http://localhost:8082/swagger-ui.html](http://localhost:8082/swagger-ui.html).
+* Open the itinerary-controller section
+* Open the /route/origin/{originName}/destination/{destinationName} section
+* Write a 3 capital letter city name on the originName and destinationName.
+* Click on "Try it out!" button.
+* The response with both paths should appear inside the section "Response Body", the fields are called pathWithLessTime and pathWithLessConnections.
+
+### Change city connections information on H2 DB
+Before starting **city-connections-service**, you can edit **data.sql** file inside src/main/resources. Once the process is up and running the rows in data.sql will be inserted on H2 DB and used in itinerary platform.
+The file stored right now, contains the following cities:
+* Possible origin cities: BCN, MAD, VAL, BIL, MAD, VAL, ZAZ, HSK
+* Possible destination cities: MAD, VAL, BIL, ZAZ, IBZ, HSK
