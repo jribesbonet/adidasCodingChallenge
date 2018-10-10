@@ -94,7 +94,7 @@ This will install the common functionlities library that will be used by other m
 
 ### 4. city-connections-service
 This project runs the City Connections Service. This microservice exposes the methods to query the H2 database in order to get the city connections.
-Project repository can be find in [this repository](https://github.com/jribesbonet/city-connections-service)
+Project repository can be find in [here](https://github.com/jribesbonet/city-connections-service)
 
 #### Build / Run instructions
 To build the binary file and create the docker image, on the path where the project is downloaded execute:
