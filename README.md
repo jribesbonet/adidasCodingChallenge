@@ -47,6 +47,9 @@ docker container run -p 8761:8761 --name itinerary-eureka-server --link itinerar
 ```
 
 ### itinerary-lib
+Library with common functionalities that will be used in the itinerary service.
+Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-lib)
+
 #### Build / Run instructions
 On the path where the project is downloaded execute:
 ```
