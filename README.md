@@ -1,16 +1,16 @@
-# adidasCodingChallenge
+# Adidas coding challenge
 Coding challenge instructions
 This instruction will make you run the itinerary service step to step.
 
-# Related projects
+## Related projects
 Those are the projects that need to be imported to make the software run correctly
 
-## itinerary-config-server
+### itinerary-config-server
 This project runs the config server. All the properties from each service will be stored and served from this service.
 All properties this config server loads are stored in [this repository](https://github.com/jribesbonet/configserver-properties).
 Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-config-server)
 
-#### Build / Run instructions
+##### Build / Run instructions
 On the path where the project is downloaded execute:
 ```
 mvn clean package docker:build
@@ -74,11 +74,11 @@ To run the application inside docker container execute:
 docker container run -p 8082:8082 --name city-connections-service --link itinerary-config-server:itinerary-config-server --link itinerary-eureka-server:itinerary-eureka-server city-connections-service:1.0
 ```
 
-### itinerary-service
+#### itinerary-service
 This project runs the City Connections Service. This microservice exposes the mehtod to obtain the path with less connections and the path with less time.
 Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-service)
 
-#### Build / Run instructions
+##### Build / Run instructions
 On the path where the project is downloaded execute:
 ```
 mvn clean package docker:build
