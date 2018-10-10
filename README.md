@@ -34,11 +34,11 @@ All properties this config server loads are stored in [this repository](https://
 Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-config-server)
 
 ##### Build / Run instructions
-On the path where the project is downloaded execute:
+To build the binary file and create the docker image, on the path where the project is downloaded execute:
 ```
 mvn clean package docker:build
 ```
-This will generate the binary file itinerary-config-server-1.0.jar
+This will generate the binary file **itinerary-config-server-1.0.jar** and the docker image **jribes/itinerary-config-server**
 
 To run the service locally **without** the docker container execute:
 ```
@@ -54,11 +54,11 @@ This project runs the eureka naming server. All microservices will be registered
 Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-eureka-server)
 
 #### Build / Run instructions
-On the path where the project is downloaded execute:
+To build the binary file and create the docker image, on the path where the project is downloaded execute:
 ```
 mvn clean package docker:build
 ```
-This will generate the binary file itinerary-eureka-server-1.0.jar
+This will generate the binary file **itinerary-eureka-server-1.0.jar** and the docker image **jribes/itinerary-eureka-server**
 
 To run the service locally **without** the docker container execute:
 ```
@@ -85,11 +85,11 @@ This project runs the City Connections Service. This microservice exposes the me
 Project repository can be find in [this repository](https://github.com/jribesbonet/city-connections-service)
 
 #### Build / Run instructions
-On the path where the project is downloaded execute:
+To build the binary file and create the docker image, on the path where the project is downloaded execute:
 ```
 mvn clean package docker:build
 ```
-This will generate the binary file city-connections-service-1.0.jar
+This will generate the binary file **city-connections-service-1.0.jar** and the docker image **jribes/city-connections-service**
 
 To run the service locally **without** the docker container execute:
 ```
@@ -105,11 +105,11 @@ This project runs the City Connections Service. This microservice exposes the me
 Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-service)
 
 ##### Build / Run instructions
-On the path where the project is downloaded execute:
+To build the binary file and create the docker image, on the path where the project is downloaded execute:
 ```
 mvn clean package docker:build
 ```
-This will generate the binary file itinerary-service-1.0.jar
+This will generate the binary file **itinerary-service-1.0.jar** and the docker image **jribes/itinerary-service**
 
 To run the service locally **without** the docker container execute:
 ```
