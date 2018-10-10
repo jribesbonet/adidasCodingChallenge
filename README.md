@@ -1,11 +1,18 @@
 # Adidas coding challenge
 Coding challenge instructions
-This instruction will make you run the itinerary service step to step.
+Step to step instructions to make itinerary service run on docker containers or as a jar file.
 
 ## Related projects
 Those are the projects that need to be imported to make the software run correctly
 
-### itinerary-config-server
+The order in which the services must be executed is the following:
+*1. run itinerary-config-server
+*2. run itinerary-eureka-server
+*3. install dependency itinerary-lib
+*4. run city-connections-service
+*5. run itinerary-service
+
+### 1. itinerary-config-server
 This project runs the config server. All the properties from each service will be stored and served from this service.
 All properties this config server loads are stored in [this repository](https://github.com/jribesbonet/configserver-properties).
 Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-config-server)
@@ -26,7 +33,7 @@ To run the application inside docker container execute:
 docker container run -p 8888:8888 --name itinerary-config-server itinerary-config-server:1.0
 ```
 
-### itinerary-eureka-server
+### 2. itinerary-eureka-server
 This project runs the eureka naming server. All microservices will be registered in the server.
 Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-eureka-server)
 
@@ -46,7 +53,7 @@ To run the application inside docker container execute:
 docker container run -p 8761:8761 --name itinerary-eureka-server --link itinerary-config-server:itinerary-config-server itinerary-eureka-server:1.0
 ```
 
-### itinerary-lib
+### 3. itinerary-lib
 Library with common functionalities that will be used in the itinerary service.
 Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-lib)
 
@@ -57,7 +64,7 @@ mvn clean install
 ```
 This will install the common functionlities library that will be used by other microservices
 
-### city-connections-service
+### 4. city-connections-service
 This project runs the City Connections Service. This microservice exposes the methods to query the H2 database in order to get the city connections.
 Project repository can be find in [this repository](https://github.com/jribesbonet/city-connections-service)
 
@@ -77,7 +84,7 @@ To run the application inside docker container execute:
 docker container run -p 8082:8082 --name city-connections-service --link itinerary-config-server:itinerary-config-server --link itinerary-eureka-server:itinerary-eureka-server city-connections-service:1.0
 ```
 
-#### itinerary-service
+#### 5. itinerary-service
 This project runs the City Connections Service. This microservice exposes the mehtod to obtain the path with less connections and the path with less time.
 Project repository can be find in [this repository](https://github.com/jribesbonet/itinerary-service)
 
