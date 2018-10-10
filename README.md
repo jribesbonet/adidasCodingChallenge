@@ -15,11 +15,11 @@ Step by step instructions to make itinerary platform run on docker containers an
 
 ## Related projects
 Those are the projects that need to be imported to make the software run correctly:
-[itinerary-config-server](https://github.com/jribesbonet/itinerary-config-server)
-[itinerary-eureka-server](https://github.com/jribesbonet/itinerary-eureka-server)
-[itinerary-lib](https://github.com/jribesbonet/itinerary-lib)
-[city-connections-service](https://github.com/jribesbonet/city-connections-service)
-[itinerary-service](https://github.com/jribesbonet/itinerary-service)
+* [itinerary-config-server](https://github.com/jribesbonet/itinerary-config-server)
+* [itinerary-eureka-server](https://github.com/jribesbonet/itinerary-eureka-server)
+* [itinerary-lib](https://github.com/jribesbonet/itinerary-lib)
+* [city-connections-service](https://github.com/jribesbonet/city-connections-service)
+* [itinerary-service](https://github.com/jribesbonet/itinerary-service)
 
 The order in which the services must be executed is the following:
 * run itinerary-config-server
