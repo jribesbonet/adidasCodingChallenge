@@ -15,16 +15,20 @@ Step to step instructions to make itinerary service run on docker containers or 
 * **Docker Spotify Maven Plungin** - Gives the capability to generate docker images files with Maven. With this approach there is no need to be changing the Dockerfile every time that the projet version changes.
 
 ## Related projects
-Those are the projects that need to be imported to make the software run correctly
+Those are the projects that need to be imported to make the software run correctly:
+[itinerary-config-server](https://github.com/jribesbonet/itinerary-config-server)
+[itinerary-eureka-server](https://github.com/jribesbonet/itinerary-eureka-server)
+[itinerary-lib](https://github.com/jribesbonet/itinerary-lib)
+[city-connections-service](https://github.com/jribesbonet/city-connections-service)
+[itinerary-service](https://github.com/jribesbonet/itinerary-service)
 
 The order in which the services must be executed is the following:
 * run itinerary-config-server
 * run itinerary-eureka-server
-* install dependency itinerary-lib
-* run city-connections-service
-* run itinerary-service
+* run city-connections-service (itinerary-lib dependency needs to be installed)
+* run itinerary-service (itinerary-lib dependency needs to be installed)
 
-## How to run the itinerary service.
+## How to build/run the itinerary platform.
 ### 1. itinerary-config-server
 This project runs the config server. All the properties from each service will be stored and served from this service.
 All properties this config server loads are stored in [this repository](https://github.com/jribesbonet/configserver-properties).
