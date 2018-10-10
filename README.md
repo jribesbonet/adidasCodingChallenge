@@ -37,6 +37,9 @@ The order in which the services must be executed is the following:
 * run itinerary-service (itinerary-lib dependency needs to be installed)
 
 ## How to build/run the itinerary platform.
+All docker run commands listed below are exposing a port outside docker environment. This is done like this to be able to enter the SwaggerUi interface of each service and check Eureka port if the people who will check this challenge want's to see it.
+For a live environment only container *itinerary-service* should be exposed outside the docker environment. 
+
 ### 1. itinerary-config-server
 This project runs the config server. All the properties from each service will be stored and served from this service.
 All properties that config server loads are stored in [this repository](https://github.com/jribesbonet/configserver-properties).
