@@ -154,3 +154,7 @@ To make the changes take effect, project need to be recompiled and executed.
 The file stored right now, contains the following cities:
 * Possible origin cities: BCN, MAD, VAL, BIL, MAD, VAL, ZAZ, HSK
 * Possible destination cities: MAD, VAL, BIL, ZAZ, IBZ, HSK
+
+## Next steps
+
+The next step will be to bring itinerary platform to Kubernetes. This way, config server, eureka server and ribbon won't be necessary on the solution because Kubernetes provides all the autoscaling, load balancing and config information.
