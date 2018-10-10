@@ -1,6 +1,5 @@
 # Adidas coding challenge
-Coding challenge instructions
-Step to step instructions to make itinerary service run on docker containers or as a jar file.
+Step by step instructions to make itinerary platform run on docker containers and as a jar file.
 
 ## Technologies used
 * **SpringBoot 2.0** - This framework provides an easy way to develop and deploy microservice with a cloud aproach
